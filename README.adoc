@@ -1,0 +1,15 @@
+= ClamAV scanning Docker image
+
+This image provides a very simple way to run `clamscan` on your machine.
+
+It will always update the ClamAV Database, by using the standard `freshclam` before running `clamscan`.
+
+== How to use
+
+[source,shell]
+docker run -ti \
+           -v clamav-db:/var/lib/clamav \
+           -v ~/dev/github/batmat/devbox:/toscan:ro \
+           batmat/clamscan -i
+
+NOTE: the `-v clamav-db:/var/lib/clamav` line above is mostly a nice to have, but will save you some time (~2 minutes on my not-so-fast Internet access) to not download the update antivirus DB from scratch each time.
