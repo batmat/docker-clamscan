@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+echo "$( date --iso-8601=min ) ClamAV scanning started"
+
 echo "Updating ClamAV scan DB"
 set +e
 freshclam
@@ -19,3 +21,5 @@ fi
 
 echo "Scanning $DIRTOSCAN"
 clamscan -r $DIRTOSCAN $@
+
+echo "$( date --iso-8601=min ) ClamAV scanning finished"
