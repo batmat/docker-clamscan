@@ -2,7 +2,6 @@
 
 set -euo pipefail
 
-# TODO see how to reuse a preexisting DB?
 echo "Updating ClamAV scan DB"
 set +e
 freshclam
